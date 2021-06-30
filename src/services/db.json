@@ -1,0 +1,20 @@
+{
+  "columns": [
+    {
+      "id": "b24318cb-3ea0-4926-ac87-9486e11728bf",
+      "name": "First",
+      "script": "console.log(\"alo\")"
+    },
+    {
+      "id": "15968359-379e-46f1-8aef-60d0eedecee2",
+      "name": "Second",
+      "script": "console.log(\"ola\")"
+    },
+    {
+      "id": "88cc232a-2a31-4186-aebf-1a5d70106b36",
+      "name": "Third",
+      "script": "console.log(3)"
+    }
+  ],
+  "cards": []
+}
