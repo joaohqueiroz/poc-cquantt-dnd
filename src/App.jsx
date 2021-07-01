@@ -7,7 +7,7 @@ function App() {
     return (
         <S.Container>
             <Board />
-        </S.Container>
+        </S.Container> 
     );
 }
 

@@ -11,17 +11,24 @@ function CreateColumnButton({ created }) {
   const [script, setScript] = useState("");
 
   const switchClicked = () => {
-    created(true);
     setClicked(!clicked);
+    
   };
 
   const createColumn = async () => {
+    const { data } = await axios.get("http://localhost:4000/columns");
+
     await axios.post("http://localhost:4000/columns", {
-      id: uuid(),
-      name,
-      script
-    })
-  }
+      ...data,
+      [uuid()]: {
+        name,
+        script,
+        items: [],
+      },
+    });
+    
+    created(true);
+  };
 
   return (
     <>

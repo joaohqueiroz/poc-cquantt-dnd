@@ -27,7 +27,7 @@ function Board() {
 
   useEffect(() => console.log(columns), [columns]);
 
-  const onDragEnd = (result, columns, setColumns) => {
+  const onDragEnd = async (result, columns, setColumns) => {
     if (!result.destination) return;
     const { source, destination } = result;
 
@@ -70,22 +70,34 @@ function Board() {
       <DragDropContext
         onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
       >
-        {columns.map((column) => {
+        {Object.entries(columns).map(([columnId, column], index) => {
           return (
-            <Droppable droppableId={column.id} key={column.id}>
-              {(provided, snapshot) => {
-                return (
-                  <List
-                    {...provided.droppableProps}
-                    ref={provided.innerRef}
-                    snapshot={snapshot}
-                    key={column.id}
-                    title={column.name}
-                    script={column.script}
-                  />
-                );
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
               }}
-            </Droppable>
+              key={columnId}
+            >
+              <h2>{column.name}</h2>
+              <div style={{ margin: 8 }}>
+                <Droppable droppableId={columnId} key={columnId}>
+                  {(provided, snapshot) => {
+                    return (
+                      <List
+                        provided={provided}
+                        snapshot={snapshot}
+                        key={columnId}
+                        title={column.name}
+                        script={column.script}
+                        column={column}
+                      />
+                    );
+                  }}
+                </Droppable>
+              </div>
+            </div>
           );
         })}
         <CreateColumnButton created={setCreated} />

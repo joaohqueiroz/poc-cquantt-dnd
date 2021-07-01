@@ -1,20 +1,36 @@
 {
-  "columns": [
-    {
-      "id": "b24318cb-3ea0-4926-ac87-9486e11728bf",
+  "columns": {
+    "b24318cb-3ea0-4926-ac87-9486e11728bf": {
       "name": "First",
-      "script": "console.log(\"alo\")"
+      "script": "console.log(\"alo\")",
+      "items": []
     },
-    {
-      "id": "15968359-379e-46f1-8aef-60d0eedecee2",
+    "15968359-379e-46f1-8aef-60d0eedecee2": {
       "name": "Second",
-      "script": "console.log(\"ola\")"
+      "script": "console.log(\"ola\")",
+      "items": []
     },
-    {
-      "id": "88cc232a-2a31-4186-aebf-1a5d70106b36",
+    "88cc232a-2a31-4186-aebf-1a5d70106b36": {
       "name": "Third",
-      "script": "console.log(3)"
+      "script": "console.log(3)",
+      "items": [
+        {
+          "id": "b24erer318cb-3ea0-4926-ac87-9486e11728bf",
+          "content": "First task",
+          "name": "CARD"
+        }
+      ]
+    },
+    "aa1c4de6-c94d-4bfb-a658-75fc73c023ed": {
+      "name": "Fourth",
+      "script": "console.log(4)",
+      "items": []
+    },
+    "9511c413-0cb3-4ccc-8d45-b1692e6bb789": {
+      "name": "vver",
+      "script": "444",
+      "items": []
     }
-  ],
+  },
   "cards": []
 }
