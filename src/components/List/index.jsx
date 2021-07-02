@@ -1,6 +1,6 @@
 import React from "react";
-import { DragDropContext, Draggable } from "react-beautiful-dnd";
-import * as S from "./styles";
+import { Draggable } from "react-beautiful-dnd";
+//import * as S from "./styles";
 
 function List({ title, snapshot, provided, column }) {
   return (
