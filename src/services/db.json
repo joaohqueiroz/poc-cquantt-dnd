@@ -1,49 +1,11 @@
 {
-  "columns": {
-    "b24318cb-3ea0-4926-ac87-9486e11728bf": {
-      "name": "First",
-      "script": "console.log(\"alo\")",
-      "items": [
-        {
-          "id": "b24erer318cb-3ea0-4926-ac87-9486e11728bf",
-          "content": "First task",
-          "name": "CARD"
-        }
-      ]
-    },
-    "15968359-379e-46f1-8aef-60d0eedecee2": {
-      "name": "Second",
-      "script": "console.log(\"ola\")",
-      "items": []
-    },
-    "88cc232a-2a31-4186-aebf-1a5d70106b36": {
-      "name": "Third",
-      "script": "console.log(3)",
-      "items": []
-    },
-    "aa1c4de6-c94d-4bfb-a658-75fc73c023ed": {
-      "name": "Fourth",
-      "script": "console.log(4)",
-      "items": []
-    },
-    "9511c413-0cb3-4ccc-8d45-b1692e6bb789": {
-      "name": "vver",
-      "script": "444",
-      "items": []
-    },
-    "ade31033-07ab-42d5-9966-2c54b9bc1c75": {
-      "name": "nova coluna",
-      "script": "console.log(\"teste\")",
-      "items": []
-    }
-  },
   "columns2": [
     {
       "id": "b24318cb-3ea0-4926-ac87-9486e11728bf",
       "name": "First",
       "script": "console.log(\"alo\")"
     },
-    { 
+    {
       "id": "15968359-379e-46f1-8aef-60d0eedecee2",
       "name": "Second",
       "script": "console.log(\"ola\")"
@@ -57,6 +19,11 @@
       "id": "aa1c4de6-c94d-4bfb-a658-75fc73c023ed",
       "name": "Fourth",
       "script": "console.log(4)"
+    },
+    {
+      "id": "e9bd26e3-422f-418e-923f-de168f5bac56",
+      "name": "NOVA COLUNA",
+      "script": "tttt"
     }
   ],
   "items": [
@@ -67,21 +34,9 @@
       "columns2Id": "b24318cb-3ea0-4926-ac87-9486e11728bf"
     },
     {
-      "id": "b24erer318cb-3ea0-4926-ac87-9486e11728bf",
-      "content": "First task3",
-      "name": "CARD3",
-      "columns2Id": "b24318cb-3ea0-4926-ac87-9486e11728bf"
-    },
-    {
       "id": "824421e6-104f-44a0-9ebb-8d76ec201b17",
       "content": "novo card para firt",
       "name": "novo card",
-      "columns2Id": "b24318cb-3ea0-4926-ac87-9486e11728bf"
-    },
-    {
-      "id": "a50ac2f4-943e-41a2-8747-aca2e7d156b9",
-      "content": "testeando",
-      "name": "viidninfdif",
       "columns2Id": "15968359-379e-46f1-8aef-60d0eedecee2"
     }
   ]

@@ -3,7 +3,7 @@ import axios from "axios";
 import uuid from "uuid/v4";
 import * as S from "./styles";
 
-export default function CreateCard({ columnId, column }) {
+export default function CreateCard({ columnId, created }) {
   const [isCreateCard, setIsCreateCard] = useState(false);
   const [nameCard, setNameCard] = useState("");
   const [contentCard, setContentCard] = useState("");
@@ -23,6 +23,8 @@ export default function CreateCard({ columnId, column }) {
     };
 
     await axios.post(`http://localhost:4000/items`, newItens);
+    setIsCreateCard(!isCreateCard)
+    created(true)
   }
   return (
     <S.Container>

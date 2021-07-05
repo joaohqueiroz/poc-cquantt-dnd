@@ -12,28 +12,32 @@ function Board() {
   const [created, setCreated] = useState(false);
 
   useEffect(() => {
-    // axios.get("http://localhost:4000/columns").then((res) => {
-    //   setColumns(res.data);
-    // });
 
     axios.get("http://localhost:4000/columns2?_embed=items").then((res) => {
-      let newCol = {}
-     
+      let newCol = {};
+
       res.data.forEach((column) => {
         newCol[column.id] = {
           ...column,
-        }
-      })
+        };
+      });
 
       setColumns(newCol);
-
     });
   }, []);
 
   useEffect(() => {
     if (created)
-      axios.get("http://localhost:4000/columns").then((res) => {
-        setColumns(res.data);
+      axios.get("http://localhost:4000/columns2?_embed=items").then((res) => {
+        let newCol = {};
+
+        res.data.forEach((column) => {
+          newCol[column.id] = {
+            ...column,
+          };
+        });
+
+        setColumns(newCol);
       });
 
     setCreated(false);
@@ -41,14 +45,21 @@ function Board() {
 
   useEffect(() => console.log(columns), [columns]);
 
-  const onDragEnd = async (result, columns, setColumns) => {
+  const onDragEnd = (result, columns, setColumns) => {
     if (!result.destination) return;
     const { source, destination } = result;
     let newColumns = {};
 
     if (source.droppableId !== destination.droppableId) {
-      console.log(destination);
+
       const sourceColumn = columns[source.droppableId];
+      let item = sourceColumn.items[source.index];
+
+      axios.put(`http://localhost:4000/items/${item.id}`, {
+        ...item,
+        columns2Id: destination.droppableId,
+      });
+
       const destColumn = columns[destination.droppableId];
       const sourceItems = [...sourceColumn.items];
       const destItems = [...destColumn.items];
@@ -82,7 +93,6 @@ function Board() {
       setColumns(newColumns);
     }
 
-    await axios.post("http://localhost:4000/columns", newColumns);
   };
 
   return (
@@ -101,7 +111,7 @@ function Board() {
               key={columnId}
             >
               <h2>{column.name}</h2>
-              <CreateCard columnId={columnId} column={column} />
+              <CreateCard created={setCreated} columnId={columnId} column={column} />
 
               <div style={{ margin: 8 }}>
                 <Droppable droppableId={columnId} key={columnId}>
@@ -114,6 +124,7 @@ function Board() {
                         title={column.name}
                         script={column.script}
                         column={column}
+                        created={setCreated}
                       />
                     );
                   }}

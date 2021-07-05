@@ -1,8 +1,15 @@
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
+import axios from "axios";
 //import * as S from "./styles";
 
-function List({ title, snapshot, provided, column }) {
+function List({ snapshot, provided, column, created }) {
+
+  async function submitRemove(cardId) {
+    await axios.delete(`http://localhost:4000/items/${cardId}`);
+    created(true);
+  }
+
   return (
     <div
       {...provided.droppableProps}
@@ -36,6 +43,9 @@ function List({ title, snapshot, provided, column }) {
                   }}
                 >
                   {item.content}
+                  <div>
+                    <button type="submit" onClick={() => submitRemove(item.id) }>Remover</button>
+                  </div>
                 </div>
               );
             }}
