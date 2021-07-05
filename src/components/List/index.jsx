@@ -4,7 +4,6 @@ import axios from "axios";
 //import * as S from "./styles";
 
 function List({ snapshot, provided, column, created }) {
-
   async function submitRemove(cardId) {
     await axios.delete(`http://localhost:4000/items/${cardId}`);
     created(true);
@@ -42,9 +41,12 @@ function List({ snapshot, provided, column, created }) {
                     ...provided.draggableProps.style,
                   }}
                 >
+                  <p>{item.name}</p>
                   {item.content}
                   <div>
-                    <button type="submit" onClick={() => submitRemove(item.id) }>Remover</button>
+                    <button type="submit" onClick={() => submitRemove(item.id)}>
+                      Remover
+                    </button>
                   </div>
                 </div>
               );

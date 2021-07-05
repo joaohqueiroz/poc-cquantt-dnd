@@ -3,40 +3,41 @@
     {
       "id": "b24318cb-3ea0-4926-ac87-9486e11728bf",
       "name": "First",
-      "script": "console.log(\"alo\")"
+      "script": "console.log(name)"
     },
     {
       "id": "15968359-379e-46f1-8aef-60d0eedecee2",
       "name": "Second",
-      "script": "console.log(\"ola\")"
+      "script": "console.log(name)"
     },
     {
       "id": "88cc232a-2a31-4186-aebf-1a5d70106b36",
       "name": "Third",
-      "script": "console.log(3)"
+      "script": "console.log(name)"
     },
     {
       "id": "aa1c4de6-c94d-4bfb-a658-75fc73c023ed",
       "name": "Fourth",
-      "script": "console.log(4)"
-    },
-    {
-      "id": "e9bd26e3-422f-418e-923f-de168f5bac56",
-      "name": "NOVA COLUNA",
-      "script": "tttt"
+      "script": "console.log(name)"
     }
   ],
   "items": [
     {
       "id": "b24erer318cb-3ea0-4926-a3c87-9486e11728bf",
       "content": "First task",
-      "name": "CARD",
+      "name": "First task",
       "columns2Id": "b24318cb-3ea0-4926-ac87-9486e11728bf"
     },
     {
       "id": "824421e6-104f-44a0-9ebb-8d76ec201b17",
       "content": "novo card para firt",
       "name": "novo card",
+      "columns2Id": "b24318cb-3ea0-4926-ac87-9486e11728bf"
+    },
+    {
+      "id": "3cdb087e-5ef2-4bc7-8441-ef13060103a8",
+      "content": "teste",
+      "name": "Testando",
       "columns2Id": "15968359-379e-46f1-8aef-60d0eedecee2"
     }
   ]

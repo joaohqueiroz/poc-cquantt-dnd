@@ -53,7 +53,7 @@ function Board() {
     if (source.droppableId !== destination.droppableId) {
 
       const sourceColumn = columns[source.droppableId];
-      let item = sourceColumn.items[source.index];
+      const item = sourceColumn.items[source.index];
 
       axios.put(`http://localhost:4000/items/${item.id}`, {
         ...item,
@@ -78,6 +78,7 @@ function Board() {
       };
 
       setColumns(newColumns);
+      runColumnScript(item, destination.droppableId)
     } else {
       const column = columns[source.droppableId];
       const copiedItems = [...column.items];
@@ -95,6 +96,22 @@ function Board() {
 
   };
 
+  const runColumnScript = async (item, columnId) => {
+    const { data } = await axios.get(`http://localhost:4000/columns2/${columnId}`);
+    const columnScript = data.script.split('(');
+
+    if(columnScript[1].substring(0, 4) === "name")
+      eval(`${columnScript[0]}('${item.name}')`)
+  }
+
+  const deleteColumn = async (columnId) => {
+    const { data } = await axios.get(`http://localhost:4000/columns2/${columnId}?_embed=items`);
+    data.items.forEach(item => axios.delete(`http://localhost:4000/items/${item.id}`));
+    await axios.delete(`http://localhost:4000/columns2/${columnId}`);
+
+    setCreated(true);
+  }
+
   return (
     <S.Container>
       <DragDropContext
@@ -111,6 +128,7 @@ function Board() {
               key={columnId}
             >
               <h2>{column.name}</h2>
+              <button onClick={() => deleteColumn(columnId)}>Remover</button>
               <CreateCard created={setCreated} columnId={columnId} column={column} />
 
               <div style={{ margin: 8 }}>

@@ -24,8 +24,18 @@ export default function CreateCard({ columnId, created }) {
 
     await axios.post(`http://localhost:4000/items`, newItens);
     setIsCreateCard(!isCreateCard)
+    runColumnScript(newItens, columnId);
     created(true)
   }
+
+  const runColumnScript = async (item, columnId) => {
+    const { data } = await axios.get(`http://localhost:4000/columns2/${columnId}`);
+    const columnScript = data.script.split('(');
+
+    if(columnScript[1].substring(0, 4) === "name")
+      eval(`${columnScript[0]}('${item.name}')`)
+  }
+
   return (
     <S.Container>
       <button type="submit" onClick={() => handleCreateCard()}>
